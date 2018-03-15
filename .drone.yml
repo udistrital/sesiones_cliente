@@ -1,5 +1,5 @@
 clone:
-  path: github.com/udistrital/campus_cliente
+  path: github.com/udistrital/sesiones_cliente
 
 build:
 
@@ -26,7 +26,7 @@ publish:
     access_key: $$DRONE_AWS_ACCESS_KEY_ID
     secret_key: $$DRONE_AWS_SECRET_ACCESS_KEY
     source: dist
-    target: /client/campus_cliente-$$BRANCH
+    target: /client/sesiones_cliente-$$BRANCH
     delete: true
     when:
       branch: develop

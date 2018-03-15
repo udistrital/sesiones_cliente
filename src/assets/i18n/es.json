@@ -1,6 +1,6 @@
 {
   "HOME": {
-    "TITLE": "Campus virtual",
+    "TITLE": "Sesiones",
     "SELECT": "Cambiar idioma",
     "LOGIN": "Iniciar sesión",
     "LOGOUT": "Cerra sesión"
@@ -14,7 +14,7 @@
       "mockup-inscription-state": "Mockup estado inscripciones",
       "mockup-candidate-query": "Mockup consultar aspirantes",
       "mockup-candidate-information": "Mockup ver información aspirante",
-      "mockup-choose-interviewer": "Mockup asignar docente entrevistador"    
+      "mockup-choose-interviewer": "Mockup asignar docente entrevistador"
     },
     "inscriptions": {
       "inscriptions": "Inscripciones",
@@ -47,7 +47,7 @@
       "maps": "Mapas",
       "google-maps": "Mapas de Google",
       "leaflet-maps": "Mapas de Leaflet",
-      "bubble-maps": "Mapas de Bubble" 
+      "bubble-maps": "Mapas de Bubble"
     },
     "charts": {
       "charts": "Gráficas",
