@@ -10,246 +10,93 @@ export const MENU_ITEMS: MenuItem[] = [
     key: 'dashboard',
   },
   {
-    title: 'Inscripcion',
-    icon: 'nb-tables',
-    link: '/pages/inscripcion',
-    key: 'inscription',
+    title: 'Participante Sesion',
+    icon: 'nb-compose',
+    link: '/pages/participante_sesion',
+    key: 'participante_sesion',
     children: [
       {
-        title: 'Mockup registro',
-        link: '/pages/inscripcion/registro',
-        key: 'mockup-register',
+        title: 'Lista Participante Sesion',
+        link: '/pages/participante_sesion/list-participante_sesion',
+        key: 'lista_participante_sesion',
       },
       {
-        title: 'Mockup inscripcion',
-        link: '/pages/inscripcion/forms',
-        key: 'mockup-inscription',
-      },
-      {
-        title: 'Mockup estado inscripciones',
-        link: '/pages/inscripcion/estado-inscripciones',
-        key: 'mockup-inscription-state',
-      },
-      {
-        title: 'Mockup consultar aspirantes',
-        link: '/pages/inscripcion/ver-aspirantes',
-        key: 'mockup-candidate-query',
-      },
-      {
-        title: 'Mockup ver información aspirante',
-        link: '/pages/inscripcion/ver-informacion-aspirante',
-        key: 'mockup-candidate-information',
-      },
-      {
-        title: 'Mockup asignar docente entrevistador',
-        link: '/pages/inscripcion/asignar-entrevistador',
-        key: 'mockup-choose-interviewer',
+        title: 'CRUD Participante Sesion',
+        link: '/pages/participante_sesion/crud-participante_sesion',
+        key: 'crud_participante_sesion',
       },
     ],
   },
   {
-    title: 'Inscripciones',
+    title: 'Sesion',
     icon: 'nb-compose',
-    link: '/pages/inscripciones',
-    key: 'inscriptions',
+    link: '/pages/sesion',
+    key: 'sesion',
     children: [
       {
-        title: 'Posgrados',
-        link: '/pages/inscripciones/posgrado',
-        key: 'postgraduate',
+        title: 'Lista Sesion',
+        link: '/pages/sesion/list-sesion',
+        key: 'lista_sesion',
       },
       {
-        title: 'Perfil',
-        link: '/pages/inscripciones/info-basica',
+        title: 'CRUD Sesion',
+        link: '/pages/sesion/crud-sesion',
+        key: 'crud_sesion',
       },
     ],
   },
   {
-    title: 'Certificados',
+    title: 'Tipo Sesion',
     icon: 'nb-compose',
-    link: '/pages/certificados',
-    key: 'certificates',
+    link: '/pages/tipo_sesion',
+    key: 'tipo_sesion',
     children: [
       {
-        title: 'Prueba QR',
-        link: '/pages/certificados/prueba-qr',
+        title: 'Lista Tipo Sesion',
+        link: '/pages/tipo_sesion/list-tipo_sesion',
+        key: 'lista_tipo_sesion',
+      },
+      {
+        title: 'CRUD Tipo Sesion',
+        link: '/pages/tipo_sesion/crud-tipo_sesion',
+        key: 'crud_tipo_sesion',
       },
     ],
   },
-  // {
-  //   title: 'UI Features',
-  //   icon: 'nb-keypad',
-  //   link: '/pages/ui-features',
-  //   key: 'ui-features',
-  //   children: [
-  //     {
-  //       title: 'Buttons',
-  //       link: '/pages/ui-features/buttons',
-  //       key: 'buttons',
-  //     },
-  //     {
-  //       title: 'Grid',
-  //       link: '/pages/ui-features/grid',
-  //       key: 'grid',
-  //     },
-  //     {
-  //       title: 'Icons',
-  //       link: '/pages/ui-features/icons',
-  //       key: 'icons',
-  //     },
-  //     {
-  //       title: 'Modals',
-  //       link: '/pages/ui-features/modals',
-  //       key: 'modals',
-  //     },
-  //     {
-  //       title: 'Typography',
-  //       link: '/pages/ui-features/typography',
-  //       key: 'typography',
-  //     },
-  //     {
-  //       title: 'Animated Searches',
-  //       link: '/pages/ui-features/search-fields',
-  //       key: 'animated-searches',
-  //     },
-  //     {
-  //       title: 'Tabs',
-  //       link: '/pages/ui-features/tabs',
-  //       key: 'tabs',
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: 'Forms',
-  //   icon: 'nb-compose',
-  //   key: 'forms',
-  //   children: [
-  //     {
-  //       title: 'Form Inputs',
-  //       link: '/pages/forms/inputs',
-  //       key: 'form-inputs',
-  //     },
-  //     {
-  //       title: 'Form Layouts',
-  //       link: '/pages/forms/layouts',
-  //       key: 'form-layouts',
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: 'Components',
-  //   icon: 'nb-gear',
-  //   key: 'components',
-  //   children: [
-  //     {
-  //       title: 'Tree',
-  //       link: '/pages/components/tree',
-  //       key: 'tree',
-  //     }, {
-  //       title: 'Notifications',
-  //       link: '/pages/components/notifications',
-  //       key: 'notifications',
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: 'Maps',
-  //   icon: 'nb-location',
-  //   key: 'maps',
-  //   children: [
-  //     {
-  //       title: 'Google Maps',
-  //       link: '/pages/maps/gmaps',
-  //       key: 'google-maps',
-  //     },
-  //     {
-  //       title: 'Leaflet Maps',
-  //       link: '/pages/maps/leaflet',
-  //       key: 'leaflet-maps',
-  //     },
-  //     {
-  //       title: 'Bubble Maps',
-  //       link: '/pages/maps/bubble',
-  //       key: 'bubble-maps',
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: 'Charts',
-  //   icon: 'nb-bar-chart',
-  //   key: 'charts',
-  //   children: [
-  //     {
-  //       title: 'Echarts',
-  //       link: '/pages/charts/echarts',
-  //       key: 'echarts',
-  //     },
-  //     {
-  //       title: 'Charts.js',
-  //       link: '/pages/charts/chartjs',
-  //       key: 'charts-js',
-  //     },
-  //     {
-  //       title: 'D3',
-  //       link: '/pages/charts/d3',
-  //       key: 'd3',
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: 'Editors',
-  //   icon: 'nb-title',
-  //   key: 'editors',
-  //   children: [
-  //     {
-  //       title: 'TinyMCE',
-  //       link: '/pages/editors/tinymce',
-  //       key: 'tinymce',
-  //     },
-  //     {
-  //       title: 'CKEditor',
-  //       link: '/pages/editors/ckeditor',
-  //       key: 'ckeditor',
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: 'Tables',
-  //   icon: 'nb-tables',
-  //   key: 'tables',
-  //   children: [
-  //     {
-  //       title: 'Smart Table',
-  //       link: '/pages/tables/smart-table',
-  //       key: 'smart-table',
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: 'Auth',
-  //   icon: 'nb-locked',
-  //   key: 'auth',
-  //   children: [
-  //     {
-  //       title: 'Login',
-  //       link: '/auth/login',
-  //       key: 'login',
-  //     },
-  //     {
-  //       title: 'Register',
-  //       link: '/auth/register',
-  //       key: 'register',
-  //     },
-  //     {
-  //       title: 'Request Password',
-  //       link: '/auth/request-password',
-  //       key: 'request-password',
-  //     },
-  //     {
-  //       title: 'Reset Password',
-  //       link: '/auth/reset-password',
-  //       key: 'reset-password',
-  //     },
-  //   ],
-  // },
-];
+  {
+    title: 'Relacion Sesiones',
+    icon: 'nb-compose',
+    link: '/pages/relacion_sesiones',
+    key: 'relacion_sesiones',
+    children: [
+      {
+        title: 'Lista Relacion Sesiones',
+        link: '/pages/relacion_sesiones/list-relacion_sesiones',
+        key: 'lista_relacion_sesiones',
+      },
+      {
+        title: 'CRUD Relacion Sesiones',
+        link: '/pages/relacion_sesiones/crud-relacion_sesiones',
+        key: 'crud_relacion_sesiones',
+      },
+    ],
+  },
+  {
+    title: 'Rol Participante Sesion',
+    icon: 'nb-compose',
+    link: '/pages/rol_participante_sesion',
+    key: 'rol_participante_sesion',
+    children: [
+      {
+        title: 'Lista Rol Participante Sesion',
+        link: '/pages/rol_participante_sesion/list-rol_participante_sesion',
+        key: 'lista_rol_participante_sesion',
+      },
+      {
+        title: 'CRUD Rol Participante Sesion',
+        link: '/pages/rol_participante_sesion/crud-rol_participante_sesion',
+        key: 'crud_rol_participante_sesion',
+      },
+    ],
+  },
+]

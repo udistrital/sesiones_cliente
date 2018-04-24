@@ -1,0 +1,41 @@
+
+export let FORM_RELACION_SESIONES = {
+    titulo: 'RelacionSesiones',
+    tipo_formulario: 'mini',
+    btn: 'Guardar',
+    alertas: true,
+    modelo: 'RelacionSesiones',
+    campos: [
+    {
+        etiqueta: 'input',
+        claseGrid: 'col-6',
+        nombre: 'Id',
+        label: 'Id*:',
+        placeholder: 'Ej. Id',
+        requerido: true,
+        tipo: 'number',
+    },
+    {
+        etiqueta: 'select',
+        claseGrid: 'col-6',
+        nombre: 'SesionPadre',
+        label: 'SesionPadre*:',
+        placeholder: 'Ej. SesionPadre',
+        requerido: true,
+        tipo: 'Sesion',
+        // key: 'Name',
+        opciones: [],
+    },
+    {
+        etiqueta: 'select',
+        claseGrid: 'col-6',
+        nombre: 'SesionHijo',
+        label: 'SesionHijo*:',
+        placeholder: 'Ej. SesionHijo',
+        requerido: true,
+        tipo: 'Sesion',
+        // key: 'Name',
+        opciones: [],
+    },
+    ],
+}
