@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { SesionesService } from '../../../@core/data/sesiones.service';
 import { ToasterService, ToasterConfig, Toast, BodyOutputType } from 'angular2-toaster';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import Swal from 'sweetalert2';
 import 'style-loader!angular2-toaster/toaster.css';
 
@@ -14,58 +15,70 @@ export class ListParticipanteSesionComponent implements OnInit {
   uid: number;
   cambiotab: boolean = false;
   config: ToasterConfig;
-  settings = {
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
-    },
-    mode: 'external',
-    columns: {
-      Id: {
-        title: 'Id',
-        // type: 'number;',
-        valuePrepareFunction: (value) => {
-          return value;
-        },
-      },
-      Sesion: {
-        title: 'Sesion',
-        // type: 'sesion;',
-        valuePrepareFunction: (value) => {
-          return value;
-        },
-      },
-      RolParticipanteSesion: {
-        title: 'RolParticipanteSesion',
-        // type: 'rol_participante_sesion;',
-        valuePrepareFunction: (value) => {
-          return value;
-        },
-      },
-      Ente: {
-        title: 'Ente',
-        // type: 'number;',
-        valuePrepareFunction: (value) => {
-          return value;
-        },
-      },
-    },
-  };
+  settings: any;
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private sesionesService: SesionesService, private toasterService: ToasterService) {
+  constructor(private translate: TranslateService, private sesionesService: SesionesService, private toasterService: ToasterService) {
     this.loadData();
+    this.cargarCampos();
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.cargarCampos();
+    });
+  }
+
+  cargarCampos() {
+    this.settings = {
+      add: {
+        addButtonContent: '<i class="nb-plus"></i>',
+        createButtonContent: '<i class="nb-checkmark"></i>',
+        cancelButtonContent: '<i class="nb-close"></i>',
+      },
+      edit: {
+        editButtonContent: '<i class="nb-edit"></i>',
+        saveButtonContent: '<i class="nb-checkmark"></i>',
+        cancelButtonContent: '<i class="nb-close"></i>',
+      },
+      delete: {
+        deleteButtonContent: '<i class="nb-trash"></i>',
+        confirmDelete: true,
+      },
+      mode: 'external',
+      columns: {
+        Id: {
+          title: this.translate.instant('GLOBAL.id'),
+          // type: 'number;',
+          valuePrepareFunction: (value) => {
+            return value;
+          },
+        },
+        Sesion: {
+          title: this.translate.instant('GLOBAL.sesion'),
+          // type: 'sesion;',
+          valuePrepareFunction: (value) => {
+            return value;
+          },
+        },
+        RolParticipanteSesion: {
+          title: this.translate.instant('GLOBAL.rol_participante_sesion'),
+          // type: 'rol_participante_sesion;',
+          valuePrepareFunction: (value) => {
+            return value;
+          },
+        },
+        Ente: {
+          title: this.translate.instant('GLOBAL.ente'),
+          // type: 'number;',
+          valuePrepareFunction: (value) => {
+            return value;
+          },
+        },
+      },
+    };
+  }
+
+  useLanguage(language: string) {
+    this.translate.use(language);
   }
 
   loadData(): void {
@@ -118,7 +131,7 @@ export class ListParticipanteSesionComponent implements OnInit {
   }
 
   selectTab(event): void {
-    if (event.tabTitle === 'Lista') {
+    if (event.tabTitle === this.translate.instant('GLOBAL.lista')) {
       this.cambiotab = false;
     } else {
       this.cambiotab = true;

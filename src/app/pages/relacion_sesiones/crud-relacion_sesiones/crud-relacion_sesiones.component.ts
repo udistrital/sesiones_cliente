@@ -5,6 +5,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SesionesService } from '../../../@core/data/sesiones.service';
 import { FORM_RELACION_SESIONES } from './form-relacion_sesiones';
 import { ToasterService, ToasterConfig, Toast, BodyOutputType } from 'angular2-toaster';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import Swal from 'sweetalert2';
 import 'style-loader!angular2-toaster/toaster.css';
 
@@ -30,11 +31,28 @@ export class CrudRelacionSesionesComponent implements OnInit {
   regRelacionSesiones: any;
   clean: boolean;
 
-  constructor(private sesionesService: SesionesService, private toasterService: ToasterService) {
+  constructor(private translate: TranslateService, private sesionesService: SesionesService, private toasterService: ToasterService) {
     this.formRelacionSesiones = FORM_RELACION_SESIONES;
+    this.construirForm();
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.construirForm();
+    });
     this.loadOptionsSesionPadre();
     this.loadOptionsSesionHijo();
    }
+
+  construirForm() {
+    this.formRelacionSesiones.titulo = this.translate.instant('GLOBAL.relacion_sesiones');
+    this.formRelacionSesiones.btn = this.translate.instant('GLOBAL.guardar');
+    for (let i = 0; i < this.formRelacionSesiones.campos.length; i++) {
+      this.formRelacionSesiones.campos[i].label = this.translate.instant('GLOBAL.' + this.formRelacionSesiones.campos[i].label_i18n);
+      this.formRelacionSesiones.campos[i].placeholder = this.translate.instant('GLOBAL.placeholder_' + this.formRelacionSesiones.campos[i].label_i18n);
+    }
+  }
+
+  useLanguage(language: string) {
+    this.translate.use(language);
+  }
 
   loadOptionsSesionPadre(): void {
     let sesionPadre: Array<any> = [];

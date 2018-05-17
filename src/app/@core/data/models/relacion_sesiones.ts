@@ -1,4 +1,3 @@
-
 import { Sesion } from './sesion';
 
 export class RelacionSesiones {

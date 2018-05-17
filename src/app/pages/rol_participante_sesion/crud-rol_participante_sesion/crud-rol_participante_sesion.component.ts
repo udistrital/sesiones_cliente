@@ -4,6 +4,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SesionesService } from '../../../@core/data/sesiones.service';
 import { FORM_ROL_PARTICIPANTE_SESION } from './form-rol_participante_sesion';
 import { ToasterService, ToasterConfig, Toast, BodyOutputType } from 'angular2-toaster';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import Swal from 'sweetalert2';
 import 'style-loader!angular2-toaster/toaster.css';
 
@@ -29,9 +30,27 @@ export class CrudRolParticipanteSesionComponent implements OnInit {
   regRolParticipanteSesion: any;
   clean: boolean;
 
-  constructor(private sesionesService: SesionesService, private toasterService: ToasterService) {
+  constructor(private translate: TranslateService, private sesionesService: SesionesService, private toasterService: ToasterService) {
     this.formRolParticipanteSesion = FORM_ROL_PARTICIPANTE_SESION;
+    this.construirForm();
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.construirForm();
+    });
    }
+
+  construirForm() {
+    this.formRolParticipanteSesion.titulo = this.translate.instant('GLOBAL.rol_participante_sesion');
+    this.formRolParticipanteSesion.btn = this.translate.instant('GLOBAL.guardar');
+    for (let i = 0; i < this.formRolParticipanteSesion.campos.length; i++) {
+      this.formRolParticipanteSesion.campos[i].label = this.translate.instant('GLOBAL.' + this.formRolParticipanteSesion.campos[i].label_i18n);
+      this.formRolParticipanteSesion.campos[i].placeholder = this.translate.instant('GLOBAL.placeholder_' +
+      this.formRolParticipanteSesion.campos[i].label_i18n);
+    }
+  }
+
+  useLanguage(language: string) {
+    this.translate.use(language);
+  }
 
 
   getIndexForm(nombre: String): number {

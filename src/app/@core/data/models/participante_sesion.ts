@@ -1,4 +1,3 @@
-
 import { Sesion } from './sesion';
 import { RolParticipanteSesion } from './rol_participante_sesion';
 

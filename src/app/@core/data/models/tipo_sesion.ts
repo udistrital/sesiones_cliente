@@ -1,5 +1,4 @@
 
-
 export class TipoSesion {
   Id: number;
   Nombre: string;
