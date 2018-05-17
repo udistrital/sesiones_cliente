@@ -1,4 +1,3 @@
-
 import { TipoSesion } from './tipo_sesion';
 
 export class Sesion {

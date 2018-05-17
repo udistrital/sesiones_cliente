@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { CrudSesionComponent } from './crud-sesion.component';
+import { ListSesionComponent } from './list-sesion.component';
 
-describe('CrudSesionComponent', () => {
-  let component: CrudSesionComponent;
-  let fixture: ComponentFixture<CrudSesionComponent>;
+describe('ListSesionComponent', () => {
+  let component: ListSesionComponent;
+  let fixture: ComponentFixture<ListSesionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CrudSesionComponent ],
+      declarations: [ ListSesionComponent ],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CrudSesionComponent);
+    fixture = TestBed.createComponent(ListSesionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

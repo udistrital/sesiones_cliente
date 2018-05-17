@@ -5,6 +5,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SesionesService } from '../../../@core/data/sesiones.service';
 import { FORM_SESION } from './form-sesion';
 import { ToasterService, ToasterConfig, Toast, BodyOutputType } from 'angular2-toaster';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import Swal from 'sweetalert2';
 import 'style-loader!angular2-toaster/toaster.css';
 
@@ -30,10 +31,27 @@ export class CrudSesionComponent implements OnInit {
   regSesion: any;
   clean: boolean;
 
-  constructor(private sesionesService: SesionesService, private toasterService: ToasterService) {
+  constructor(private translate: TranslateService, private sesionesService: SesionesService, private toasterService: ToasterService) {
     this.formSesion = FORM_SESION;
+    this.construirForm();
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.construirForm();
+    });
     this.loadOptionsTipoSesion();
    }
+
+  construirForm() {
+    this.formSesion.titulo = this.translate.instant('GLOBAL.sesion');
+    this.formSesion.btn = this.translate.instant('GLOBAL.guardar');
+    for (let i = 0; i < this.formSesion.campos.length; i++) {
+      this.formSesion.campos[i].label = this.translate.instant('GLOBAL.' + this.formSesion.campos[i].label_i18n);
+      this.formSesion.campos[i].placeholder = this.translate.instant('GLOBAL.placeholder_' + this.formSesion.campos[i].label_i18n);
+    }
+  }
+
+  useLanguage(language: string) {
+    this.translate.use(language);
+  }
 
   loadOptionsTipoSesion(): void {
     let tipoSesion: Array<any> = [];

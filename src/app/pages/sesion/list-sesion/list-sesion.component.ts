@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { SesionesService } from '../../../@core/data/sesiones.service';
 import { ToasterService, ToasterConfig, Toast, BodyOutputType } from 'angular2-toaster';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import Swal from 'sweetalert2';
 import 'style-loader!angular2-toaster/toaster.css';
 
@@ -14,100 +15,112 @@ export class ListSesionComponent implements OnInit {
   uid: number;
   cambiotab: boolean = false;
   config: ToasterConfig;
-  settings = {
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
-    },
-    mode: 'external',
-    columns: {
-      Id: {
-        title: 'Id',
-        // type: 'number;',
-        valuePrepareFunction: (value) => {
-          return value;
-        },
-      },
-      Descripcion: {
-        title: 'Descripcion',
-        // type: 'string;',
-        valuePrepareFunction: (value) => {
-          return value;
-        },
-      },
-      FechaCreacion: {
-        title: 'FechaCreacion',
-        // type: 'Date;',
-        valuePrepareFunction: (value) => {
-          return value;
-        },
-      },
-      FechaModificacion: {
-        title: 'FechaModificacion',
-        // type: 'Date;',
-        valuePrepareFunction: (value) => {
-          return value;
-        },
-      },
-      FechaInicio: {
-        title: 'FechaInicio',
-        // type: 'Date;',
-        valuePrepareFunction: (value) => {
-          return value;
-        },
-      },
-      FechaFin: {
-        title: 'FechaFin',
-        // type: 'Date;',
-        valuePrepareFunction: (value) => {
-          return value;
-        },
-      },
-      Periodo: {
-        title: 'Periodo',
-        // type: 'number;',
-        valuePrepareFunction: (value) => {
-          return value;
-        },
-      },
-      Recurrente: {
-        title: 'Recurrente',
-        // type: 'boolean;',
-        valuePrepareFunction: (value) => {
-          return value;
-        },
-      },
-      NumeroRecurrencias: {
-        title: 'NumeroRecurrencias',
-        // type: 'number;',
-        valuePrepareFunction: (value) => {
-          return value;
-        },
-      },
-      TipoSesion: {
-        title: 'TipoSesion',
-        // type: 'tipo_sesion;',
-        valuePrepareFunction: (value) => {
-          return value;
-        },
-      },
-    },
-  };
+  settings: any;
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private sesionesService: SesionesService, private toasterService: ToasterService) {
+  constructor(private translate: TranslateService, private sesionesService: SesionesService, private toasterService: ToasterService) {
     this.loadData();
+    this.cargarCampos();
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.cargarCampos();
+    });
+  }
+
+  cargarCampos() {
+    this.settings = {
+      add: {
+        addButtonContent: '<i class="nb-plus"></i>',
+        createButtonContent: '<i class="nb-checkmark"></i>',
+        cancelButtonContent: '<i class="nb-close"></i>',
+      },
+      edit: {
+        editButtonContent: '<i class="nb-edit"></i>',
+        saveButtonContent: '<i class="nb-checkmark"></i>',
+        cancelButtonContent: '<i class="nb-close"></i>',
+      },
+      delete: {
+        deleteButtonContent: '<i class="nb-trash"></i>',
+        confirmDelete: true,
+      },
+      mode: 'external',
+      columns: {
+        Id: {
+          title: this.translate.instant('GLOBAL.id'),
+          // type: 'number;',
+          valuePrepareFunction: (value) => {
+            return value;
+          },
+        },
+        Descripcion: {
+          title: this.translate.instant('GLOBAL.descripcion'),
+          // type: 'string;',
+          valuePrepareFunction: (value) => {
+            return value;
+          },
+        },
+        FechaCreacion: {
+          title: this.translate.instant('GLOBAL.fecha_creacion'),
+          // type: 'Date;',
+          valuePrepareFunction: (value) => {
+            return value;
+          },
+        },
+        FechaModificacion: {
+          title: this.translate.instant('GLOBAL.fecha_modificacion'),
+          // type: 'Date;',
+          valuePrepareFunction: (value) => {
+            return value;
+          },
+        },
+        FechaInicio: {
+          title: this.translate.instant('GLOBAL.fecha_inicio'),
+          // type: 'Date;',
+          valuePrepareFunction: (value) => {
+            return value;
+          },
+        },
+        FechaFin: {
+          title: this.translate.instant('GLOBAL.fecha_fin'),
+          // type: 'Date;',
+          valuePrepareFunction: (value) => {
+            return value;
+          },
+        },
+        Periodo: {
+          title: this.translate.instant('GLOBAL.periodo'),
+          // type: 'number;',
+          valuePrepareFunction: (value) => {
+            return value;
+          },
+        },
+        Recurrente: {
+          title: this.translate.instant('GLOBAL.recurrente'),
+          // type: 'boolean;',
+          valuePrepareFunction: (value) => {
+            return value;
+          },
+        },
+        NumeroRecurrencias: {
+          title: this.translate.instant('GLOBAL.numero_recurrencias'),
+          // type: 'number;',
+          valuePrepareFunction: (value) => {
+            return value;
+          },
+        },
+        TipoSesion: {
+          title: this.translate.instant('GLOBAL.tipo_sesion'),
+          // type: 'tipo_sesion;',
+          valuePrepareFunction: (value) => {
+            return value;
+          },
+        },
+      },
+    };
+  }
+
+  useLanguage(language: string) {
+    this.translate.use(language);
   }
 
   loadData(): void {
@@ -160,7 +173,7 @@ export class ListSesionComponent implements OnInit {
   }
 
   selectTab(event): void {
-    if (event.tabTitle === 'Lista') {
+    if (event.tabTitle === this.translate.instant('GLOBAL.lista')) {
       this.cambiotab = false;
     } else {
       this.cambiotab = true;
