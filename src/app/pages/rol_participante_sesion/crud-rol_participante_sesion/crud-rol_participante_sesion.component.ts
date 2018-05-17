@@ -43,7 +43,8 @@ export class CrudRolParticipanteSesionComponent implements OnInit {
     this.formRolParticipanteSesion.btn = this.translate.instant('GLOBAL.guardar');
     for (let i = 0; i < this.formRolParticipanteSesion.campos.length; i++) {
       this.formRolParticipanteSesion.campos[i].label = this.translate.instant('GLOBAL.' + this.formRolParticipanteSesion.campos[i].label_i18n);
-      this.formRolParticipanteSesion.campos[i].placeholder = this.translate.instant('GLOBAL.placeholder_' + this.formRolParticipanteSesion.campos[i].label_i18n);
+      this.formRolParticipanteSesion.campos[i].placeholder = this.translate.instant('GLOBAL.placeholder_' +
+      this.formRolParticipanteSesion.campos[i].label_i18n);
     }
   }
 
