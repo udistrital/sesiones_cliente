@@ -1,6 +1,6 @@
 {
   "HOME": {
-    "TITLE": "SESIONES",
+    "TITLE": "CALENDARIO",
     "SELECT": "Cambiar idioma",
     "LOGIN": "Iniciar sesion",
     "LOGOUT": "Cerra sesion"
@@ -9,30 +9,21 @@
     "dashboard": "Inicio",
     "participante_sesion": {
       "participante_sesion": "participante_sesion",
-      "lista_participante_sesion": "lista participante_sesion",
-      "crud_participante_sesion": "Crud participante_sesion"
+      "lista_participante_sesion": "lista participante_sesion"
     },
     "sesion": {
       "sesion": "sesion",
-      "lista_sesion": "lista sesion",
-      "crud_sesion": "Crud sesion"
+      "lista_sesion": "lista sesion"
     },
-    "tipo_sesion": {
-      "tipo_sesion": "tipo_sesion",
-      "lista_tipo_sesion": "lista tipo_sesion",
-      "crud_tipo_sesion": "Crud tipo_sesion"
+    "datos_parametricos": {
+      "datos_parametricos": "Datos Parametricos",
+      "tipo_sesion": "Tipo Sesion",
+      "rol_participante_sesion": "Rol Participante Sesion"
     },
     "relacion_sesiones": {
       "relacion_sesiones": "relacion_sesiones",
-      "lista_relacion_sesiones": "lista relacion_sesiones",
-      "crud_relacion_sesiones": "Crud relacion_sesiones"
+      "lista_relacion_sesiones": "lista relacion_sesiones"
     },
-    "rol_participante_sesion": {
-      "rol_participante_sesion": "rol_participante_sesion",
-      "lista_rol_participante_sesion": "lista rol_participante_sesion",
-      "crud_rol_participante_sesion": "Crud rol_participante_sesion"
-    },
-  
     "auth": {
       "auth": "Autenticacion",
       "login": "Login",

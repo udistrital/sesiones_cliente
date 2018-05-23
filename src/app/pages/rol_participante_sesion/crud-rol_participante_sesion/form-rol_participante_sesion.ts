@@ -6,7 +6,7 @@ export let FORM_ROL_PARTICIPANTE_SESION = {
     alertas: true,
     modelo: 'RolParticipanteSesion',
     campos: [
-    {
+    /*{
         etiqueta: 'input',
         claseGrid: 'col-6',
         nombre: 'Id',
@@ -14,7 +14,7 @@ export let FORM_ROL_PARTICIPANTE_SESION = {
         placeholder_i18n: 'id',
         requerido: true,
         tipo: 'number',
-    },
+    },*/
     {
         etiqueta: 'input',
         claseGrid: 'col-6',
