@@ -5,6 +5,7 @@ export let FORM_SESION = {
     btn: 'Guardar',
     alertas: true,
     modelo: 'Sesion',
+    fieldseter: true,
     campos: [
     {
         etiqueta: 'input',

@@ -4,7 +4,7 @@ export const Config = {
             PATH: 'https://documental.udistrital.edu.co/nuxeo/',
         },
         WSO2_SERVICE: 'http://jbpm.udistritaloas.edu.co:8280/services',
-        SESIONES_SERVICE: 'http://localhost:8080/v1/',
+        SESIONES_SERVICE: 'http://localhost:8081/v1/',
         TOKEN: {
             AUTORIZATION_URL: 'https://autenticacion.udistrital.edu.co/oauth2/authorize',
             CLIENTE_ID: 'pszmROXqfec4pTShgF_fn2DAAX0a',
